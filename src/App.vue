@@ -1,28 +1,52 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+       <Avatar
+      v-for="({nombre, src}, $index) of personajes"
+      :key="$index"
+      :nombre="nombre"
+      :imagen="src"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Avatar from './components/Avatar'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: {Avatar},
+    data: () => ({
+    personajes: [
+      {
+        nombre: "Rick Sanchez",
+        src: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      },
+      {
+        nombre: "Morty Smith",
+        src: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+      },
+      {
+        nombre: "Summer Smith",
+        src: "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+      },
+      {
+        nombre: "Beth Smith",
+        src: "https://rickandmortyapi.com/api/character/avatar/4.jpeg",
+      },
+      {
+        nombre: "Jerry Smith",
+        src: "https://rickandmortyapi.com/api/character/avatar/5.jpeg",
+      },
+    ],
+  }),
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body{
+    background: url('https://rickandmortypod.com/wp-content/uploads/2018/11/cropped-RM_page-header_background1-3.png');
+    margin: 0;
+    padding: 0;
+  }
 </style>
